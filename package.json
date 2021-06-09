@@ -1,7 +1,6 @@
 {
   "name": "microservicewithmongo",
   "version": "1.0.0",
-  "private": true,
   "scripts": {
     "start": "nodemon ./bin/www"
   },
