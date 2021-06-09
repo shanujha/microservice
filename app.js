@@ -5,12 +5,14 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 require('dotenv').config();
 var indexRouter = require('./routes/index');
+var mongo = require("./config/mongo.utility");
 
 var app = express();
+mongo.connect();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -18,7 +20,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+app.use('/v1', indexRouter);
+app.use(function (req, res, next) {
+  res.status(404).json({
+    status: 404, message: "Not Found",
+    route: req.originalUrl,
+    description: "The requested URL was not found on the server"
+  })
+})
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -26,7 +35,7 @@ app.use(function (req, res, next) {
 });
 
 // error handler
-app.use(function (err, req, res, next) {
+app.use(function (err, req, res) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
