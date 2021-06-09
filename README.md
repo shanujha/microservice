@@ -1,2 +1,5 @@
-# microservice
- To use simply add .env file with PORT and DATABASE 
+## Get Started
+
+To use this template.
+
+Change the `PORT` and `DATABASE` values in the `.env`
