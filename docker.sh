@@ -1,2 +1,2 @@
-docker build . -t <your_username>/<microservice_name>
-docker run -p 43434:4001 -d <your_username>/<microservice_name>
+docker build . -t defaultuser/defaultservice
+docker run -p 4001:4001 -d defaultuser/defaultservice
