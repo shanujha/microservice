@@ -43,3 +43,24 @@ Then setup `eslint` in project
 
     Q. Would you like to install dependencies now?
     A. Yes
+    
+### Script
+    
+    # microservice.bat
+
+    git clone https://github.com/shanujha/microservice.git .
+    rmdir .git /S /Q
+    git init
+    git add .
+    git commit -m "initial commit"
+    @echo Next steps
+    @echo Change the package name in package.json
+    @echo Change the PORT and DATABASE in .env
+    @echo Add origin to this repository
+    @echo git remote add origin your_repo_url
+    @echo I will now install npm packages
+    pause
+    npm i
+
+
+
