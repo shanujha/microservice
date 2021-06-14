@@ -2,6 +2,14 @@
 
 Change the `PORT` and `DATABASE` values in the `.env`
 
+### Docker supports
+
+This template has docker support built in. To use, modify the `DATABASE` and `PORT` parameters in the `.env` and `Dockerfile`. Then edit the default username and service name in `docker.sh`.
+
+Then run 
+
+    $ docker.sh
+
 ### Setup ESlint (Optional)
 
 To setup `eslint` on your machine
